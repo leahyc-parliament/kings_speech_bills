@@ -1,3 +1,6 @@
+install.packages("httr")
+install.packages("jsonlite")
+install.packages("tidyverse")
 library(httr)
 library(jsonlite)
 library(tidyverse)
