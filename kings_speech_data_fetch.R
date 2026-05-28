@@ -328,7 +328,7 @@ publications_data <- publications_data |>
 
 publications_final <- publications_data |>
   rename(
-    "Briefing paper" = "title",
+    "Library briefing" = "title",
     "URL" = "links_url"
   )
 
@@ -343,17 +343,17 @@ news_publications <- left_join(
   ) |>
   # for bills with briefing papers, hyperlink the briefing paper title with url
   mutate(
-    `Briefing paper` = if_else(
-      is.na(URL) | URL == "" | is.na(`Briefing paper`) | `Briefing paper` == "",
-      `Briefing paper`,
-      sprintf('<a href="%s" target="_blank">%s</a>', URL, `Briefing paper`)
+    `Library briefing` = if_else(
+      is.na(URL) | URL == "" | is.na(`Library briefing`) | `Library briefing` == "",
+      `Library briefing`,
+      sprintf('<a href="%s" target="_blank">%s</a>', URL, `Library briefing`)
     )
   ) |>
   select(-URL) |>
   # for bills with >1 briefing paper, condensing into one row
   group_by(`King's Speech announcement`) |>
   mutate(
-    `Briefing paper` = paste(`Briefing paper`, collapse = "<br><br>")
+    `Library briefing` = paste(`Library briefing`, collapse = "<br><br>")
   ) |>
   slice(1) |> # keep one row per bill
   ungroup()
