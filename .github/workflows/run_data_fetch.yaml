@@ -1,0 +1,41 @@
+name: King's Speech Data Fetch
+run-name: ${{ github.actor }} is fetching King's Speech bills data
+
+# on: 
+#   schedule:
+#     - cron: "0,5,10,15,20,25,30,35,40,45,50,55 * * * *"
+
+
+on: [push]
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v6
+
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+
+      - name: Install R on ubuntu runner
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.2'
+
+      - name: Run kings_speech_data_fetch.R script
+        run: | 
+          Rscript kings_speech_data_fetch.R
+
+      - name: Commit and push news.csv and main_table.csv to repo
+        run: |
+          git config --global user.name "leahyc-parliament"
+          git config --global user.email "leahyc@parliament.uk"
+          git add .
+          git commit -m "Add kings_speech_data_fetch.R output csvs" || echo "No changes to commit"
+          git push
