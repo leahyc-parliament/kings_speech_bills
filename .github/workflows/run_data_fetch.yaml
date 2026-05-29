@@ -9,7 +9,7 @@ on:
 # on: [push]
 
 jobs:
-  Fetch_King's_Speech_data:
+  Fetch-King's-Speech-data:
     runs-on: ubuntu-latest
 
     permissions:
