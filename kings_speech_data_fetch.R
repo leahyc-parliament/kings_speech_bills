@@ -48,41 +48,41 @@ kings_bills <- data.frame(
     "Representation of the People Bill*"
   ),
 
-  bill_id = c(
-    4125,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    4129,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    4128,
-    4126,
-    0,
-    4127,
-    4123,
-    0,
-    4065,
-    4083,
-    4035,
-    4022,
-    3094,
-    4019,
-    4030,
-    4080
+   bill_id = c(
+    4125, # Civil Aviation Bill
+    0,    # Clean Water Bill
+    0,    # Commonhold and Leasehold Reform Bill
+    0,    # Competition Reform Bill
+    0,    # Digital Access to Services Bill
+    0,    # Education for All Bill
+    0,    # Electricity Generator Levy Bill
+    0,    # Energy Independence Bill
+    4129, # Enhancing Financial Services Bill
+    0,    # European Partnership Bill
+    0,    # Highways (Financing) Bill
+    0,    # Immigration and Asylum Bill
+    0,    # National Security Bill
+    0,    # Health Bill
+    0,    # Nuclear Regulation Bill
+    0,    # Overnight Visitor Levy Bill
+    0,    # Police Reform Bill
+    0,    # Regulating for Growth Bill
+    0,    # Remediation Bill
+    0,    # Removal of Peerages Bill
+    4128, # Small Business Protections (Late Payments) Bill
+    4126, # Social Housing Bill
+    0,    # Sovereign Grant Bill
+    4127, # Sporting Events Bill
+    4123, # Steel Industry (Nationalisation) Bill
+    0,    # Tackling State Threats Bill
+    4065, # Armed Forces Bill*
+    4083, # Courts and Tribunals Bill*
+    4035, # Cyber Security and Resilience (Network and Information Systems) Bill*
+    4022, # Northern Ireland Troubles Bill*
+    3094, # High Speed Rail (Crewe - Manchester) Bill / Northern Powerhouse Rail*
+    4019, # Public Office (Accountability) Bill*
+    4030, # Railways Bill*
+    4080  # Representation of the People Bill*
   )
 )
 
