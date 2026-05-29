@@ -9,7 +9,7 @@ on:
 # on: [push]
 
 jobs:
-  Explore-GitHub-Actions:
+  Fetch King's Speech data:
     runs-on: ubuntu-latest
 
     permissions:
