@@ -4,7 +4,7 @@ run-name: ${{ github.actor }} is sending alerts for new Government Bills introdu
 on: [push]
 
 jobs:
-  Get newly introduced Government Bills:
+  Get_newly_introduced_Government_Bills:
     runs-on: ubuntu-latest
 
     permissions:
