@@ -1,0 +1,41 @@
+name: Government Bills Alert
+run-name: ${{ github.actor }} is sending alerts for new Government Bills introduced
+
+# on: 
+#   schedule:
+#     - cron: "30 10 * * *"
+
+
+on: [push]
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v6
+
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+
+      - name: Install R on ubuntu runner
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.2'
+
+      - name: Run gov_bill_alerts.R script
+        run: | 
+          Rscript gov_bill_alerts.R
+
+      - name: Commit and push new_gov_bills.csv to repo
+        run: |
+          git config --global user.name "leahyc-parliament"
+          git config --global user.email "leahyc@parliament.uk"
+          git add .
+          git commit -m "Add gov_bill_alerts.R output csv" || echo "No changes to commit"
+          git push
