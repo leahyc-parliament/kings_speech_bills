@@ -1,10 +1,6 @@
 name: Government Bills Alert
 run-name: ${{ github.actor }} is sending alerts for new Government Bills introduced
 
-# on: 
-#   schedule:
-#     - cron: "30 10 * * *"
-
 on: [push]
 
 jobs:
