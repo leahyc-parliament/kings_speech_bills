@@ -1,7 +1,5 @@
-install.packages("stringr")
-install.packages("dplyr")
-library(stringr)
-library(dplyr)
+install.packages("tidyverse")
+library(tidyverse)
 
 original_gov_bills <- read.csv("back_up_data/gov_bills_29_05_2026.csv")
   # slice(-c(1, 2, 3, 4)) #only for testing, remove eventually
