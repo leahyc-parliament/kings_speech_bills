@@ -1,14 +1,16 @@
 install.packages("httr")
 install.packages("jsonlite")
 install.packages("tidyverse")
+install.packages("purrr")
+
 library(httr)
 library(jsonlite)
 library(tidyverse)
+library(stringr)
 
 # =================================
 # BUILDING TABLE FROM KINGS SPEECH
 # =================================
-
 # manually adding announced titles from Kings speech
 kings_bills <- data.frame(
   announced_bill_title = c(
@@ -48,33 +50,33 @@ kings_bills <- data.frame(
     "Representation of the People Bill*"
   ),
 
-   bill_id = c(
+  bill_id = c(
     4125, # Civil Aviation Bill
-    0,    # Clean Water Bill
-    0,    # Commonhold and Leasehold Reform Bill
-    0,    # Competition Reform Bill
-    0,    # Digital Access to Services Bill
-    0,    # Education for All Bill
-    0,    # Electricity Generator Levy Bill
-    0,    # Energy Independence Bill
+    0, # Clean Water Bill
+    0, # Commonhold and Leasehold Reform Bill
+    0, # Competition Reform Bill
+    0, # Digital Access to Services Bill
+    0, # Education for All Bill
+    0, # Electricity Generator Levy Bill
+    0, # Energy Independence Bill
     4129, # Enhancing Financial Services Bill
-    0,    # European Partnership Bill
-    0,    # Highways (Financing) Bill
-    0,    # Immigration and Asylum Bill
-    0,    # National Security Bill
+    0, # European Partnership Bill
+    0, # Highways (Financing) Bill
+    0, # Immigration and Asylum Bill
+    0, # National Security Bill
     4124, # Health Bill
-    0,    # Nuclear Regulation Bill
-    0,    # Overnight Visitor Levy Bill
-    0,    # Police Reform Bill
-    0,    # Regulating for Growth Bill
-    0,    # Remediation Bill
-    0,    # Removal of Peerages Bill
+    0, # Nuclear Regulation Bill
+    0, # Overnight Visitor Levy Bill
+    0, # Police Reform Bill
+    0, # Regulating for Growth Bill
+    0, # Remediation Bill
+    0, # Removal of Peerages Bill
     4128, # Small Business Protections (Late Payments) Bill
     4126, # Social Housing Bill
-    0,    # Sovereign Grant Bill
+    0, # Sovereign Grant Bill
     4127, # Sporting Events Bill
     4123, # Steel Industry (Nationalisation) Bill
-    0,    # Tackling State Threats Bill
+    0, # Tackling State Threats Bill
     4065, # Armed Forces Bill*
     4083, # Courts and Tribunals Bill*
     4035, # Cyber Security and Resilience (Network and Information Systems) Bill*
@@ -82,7 +84,7 @@ kings_bills <- data.frame(
     3094, # High Speed Rail (Crewe - Manchester) Bill / Northern Powerhouse Rail*
     4019, # Public Office (Accountability) Bill*
     4030, # Railways Bill*
-    4080  # Representation of the People Bill*
+    4080 # Representation of the People Bill*
   )
 )
 
@@ -122,7 +124,7 @@ all_bills <- bills_json$items |>
 # matching by bill ID to join with data on annouced titles
 main_table <- kings_bills |>
   left_join(all_bills, by = c("bill_id" = "billId")) |>
-  select(announced_bill_title, bill_id, shortTitle, originatingHouse) |> 
+  select(announced_bill_title, bill_id, shortTitle, originatingHouse) |>
   # remove [HL] from shortTitle
   mutate(
     `shortTitle` = str_remove(`shortTitle`, " \\[HL\\]$")
@@ -345,7 +347,10 @@ news_publications <- left_join(
   # for bills with briefing papers, hyperlink the briefing paper title with url
   mutate(
     `Library briefing` = if_else(
-      is.na(URL) | URL == "" | is.na(`Library briefing`) | `Library briefing` == "",
+      is.na(URL) |
+        URL == "" |
+        is.na(`Library briefing`) |
+        `Library briefing` == "",
       `Library briefing`,
       sprintf('<a href="%s" target="_blank">%s</a>', URL, `Library briefing`)
     )
@@ -360,3 +365,46 @@ news_publications <- left_join(
   ungroup()
 
 write.csv(news_publications, "news.csv")
+
+
+# =======================
+# CREATING DOWNLOAD FILE
+# =======================
+
+# Function to convert <a href="URL">TEXT</a> into =HYPERLINK("URL","TEXT")
+convert_html_links <- function(x) {
+  # Treat "NA" as missing
+  x[x == "NA"] <- NA
+  
+  ifelse(
+    is.na(x),
+    NA,
+    {
+      url  <- str_extract(x, '(?<=href=")[^"]+')
+      text <- str_extract(x, '(?<=>)[^<]+')
+      paste0('=HYPERLINK("', url, '","', text, '")')
+    }
+  )
+}
+
+
+download_file <- main_table_final %>%
+  left_join(news_publications, by = "King's Speech announcement") %>%
+  select(-`bill_id.x`, -`bill_id.y`) |> 
+  mutate(
+    `Introduced title.x` = convert_html_links(`Introduced title.x`),
+    `Library briefing` = convert_html_links(`Library briefing`),
+  ) |> 
+    select(
+    `King's Speech announcement`,
+    `Introduced title` = `Introduced title.x`,
+    `Originating house`,
+    `Introduction date`,
+    `Royal Assent date`,
+    `Act title`,
+    `Progress summary`,
+    `Library briefing`
+  )
+
+
+write.csv(download_file, "download_file.csv", row.names = FALSE, na = "")
