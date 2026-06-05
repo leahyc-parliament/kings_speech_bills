@@ -177,12 +177,13 @@ main_table_final <- main_table |>
   rename(
     "King's Speech announcement" = "announced_bill_title",
     "Introduced title" = "shortTitle",
-    "House introduced to" = "originatingHouse",
+    "Originating house" = "originatingHouse",
     "Introduction date" = "1st reading",
   ) |>
   # adding in bill webpage urls
   left_join(bills_webpages, by = c("bill_id" = "bill_id")) |>
   #  for introduced bills with bill webpages, hyperlink the introduced title with url
+
   mutate(
     `Introduced title` = if_else(
       is.na(URL) |

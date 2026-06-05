@@ -39,6 +39,6 @@ write.csv(
 
 # write.csv(
 #   new_gov_bills,
-#   paste0("C:\\Users\\leahyc\\OneDrive - UK Parliament\\Government Bills Alerts\\new_gov_bills_", Sys.Date(), ".csv"),
+#   paste0("C:\\Users\\leahyc\\OneDrive - UK Parliament\\Government Bills Alerts\\first_new_gov_bills_", Sys.Date(), ".csv"),
 #   row.names = FALSE
 # )
