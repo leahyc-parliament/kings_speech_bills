@@ -33,7 +33,7 @@ new_gov_bills <- read.csv("https://api.parliament.uk/bill-papers/bills.csv") |>
 
 write.csv(
   new_gov_bills,
-  paste0("new_gov_bills_", Sys.Date(), ".csv"),
+  "new_gov_bills.csv",
   row.names = FALSE
 )
 
@@ -42,3 +42,5 @@ write.csv(
 #   paste0("C:\\Users\\leahyc\\OneDrive - UK Parliament\\Government Bills Alerts\\first_new_gov_bills_", Sys.Date(), ".csv"),
 #   row.names = FALSE
 # )
+
+  paste0("new_gov_bills_", Sys.Date(), ".csv"),
