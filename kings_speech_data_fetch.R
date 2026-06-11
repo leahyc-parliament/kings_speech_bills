@@ -76,7 +76,7 @@ kings_bills <- data.frame(
     0, # Sovereign Grant Bill
     4127, # Sporting Events Bill
     4123, # Steel Industry (Nationalisation) Bill
-    0, # Tackling State Threats Bill
+    4140, # Tackling State Threats Bill
     4065, # Armed Forces Bill*
     4083, # Courts and Tribunals Bill*
     4035, # Cyber Security and Resilience (Network and Information Systems) Bill*
