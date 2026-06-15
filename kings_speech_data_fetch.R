@@ -198,7 +198,7 @@ main_table_final <- main_table |>
   ) |>
   select(-URL)
 
-write_csv(main_table_final, "main_table.csv")
+write_csv(main_table_final, "app_data/main_table.csv")
 
 
 # ======================================
@@ -364,7 +364,7 @@ news_publications <- left_join(
   slice(1) |> # keep one row per bill
   ungroup()
 
-write.csv(news_publications, "news.csv")
+write.csv(news_publications, "app_data/news.csv")
 
 
 # =======================
@@ -407,4 +407,4 @@ download_file <- main_table_final %>%
   )
 
 
-write.csv(download_file, "download_file.csv", row.names = FALSE, na = "")
+write.csv(download_file, "app_data/download_file.csv", row.names = FALSE, na = "")

@@ -33,6 +33,6 @@ new_gov_bills <- read.csv("https://api.parliament.uk/bill-papers/bills.csv") |>
 
 write.csv(
   new_gov_bills,
-  "accounted_for_gov_bills.csv",
+  "alerts_data/accounted_for_gov_bills.csv",
   row.names = FALSE
 )
