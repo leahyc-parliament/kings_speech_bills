@@ -163,7 +163,7 @@ get_bill_stages <- function(kings_ids) {
 stages <- lapply(kings_ids, get_bill_stages) |>
   bind_rows() |>
   select(description, stageSittings_billId, stageSittings_date) |>
-  pivot_wider(names_from = description, values_from = stageSittings_date) |>
+  pivot_wider(names_from = description, values_from = stageSittings_date, values_fn = dplyr::first) |>
   select(stageSittings_billId, `1st reading`) # when Royal Assent is reached add in column
 
 # Join date introduced data with main table
