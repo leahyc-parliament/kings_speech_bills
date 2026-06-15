@@ -1,8 +1,8 @@
 install.packages("tidyverse")
 library(tidyverse)
 
-original_gov_bills <- read.csv("back_up_data/gov_bills_29_05_2026.csv")  
-# slice(-c(1, 2, 3, 4)) #only for testing, remove eventually
+# original_gov_bills <- read.csv("back_up_data/gov_bills_29_05_2026.csv")  
+# # slice(-c(1, 2, 3, 4)) #only for testing, remove eventually
 
 new_gov_bills <- read.csv("https://api.parliament.uk/bill-papers/bills.csv") |>
   mutate(
