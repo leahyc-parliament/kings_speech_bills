@@ -173,7 +173,9 @@ main_table_final <- main_table |>
     `1st reading` = format(
       as.Date(`1st reading`, format = "%Y-%m-%d"),
       "%d %B %Y"
-    )
+    ),
+    `Royal Assent` = format(as.Date(`Royal Assent`, format = "%Y-%m-%d"),
+      "%d %B %Y")
   ) |>
   # mutate(`Royal Assent date` = NA, `Act title` = NA) |>
    mutate(`Act title` = NA) |>
