@@ -164,7 +164,7 @@ stages <- lapply(kings_ids, get_bill_stages) |>
   bind_rows() |>
   select(description, stageSittings_billId, stageSittings_date) |>
   pivot_wider(names_from = description, values_from = stageSittings_date, values_fn = dplyr::first) |>
-  select(stageSittings_billId, `1st reading`) # when Royal Assent is reached add in column
+  select(stageSittings_billId, `1st reading`, `Royal Assent`)
 
 # Join date introduced data with main table
 main_table_final <- main_table |>
@@ -175,12 +175,14 @@ main_table_final <- main_table |>
       "%d %B %Y"
     )
   ) |>
-  mutate(`Royal Assent date` = NA, `Act title` = NA) |>
+  # mutate(`Royal Assent date` = NA, `Act title` = NA) |>
+   mutate(`Act title` = NA) |>
   rename(
     "King's Speech announcement" = "announced_bill_title",
     "Introduced title" = "shortTitle",
     "Originating house" = "originatingHouse",
     "Introduction date" = "1st reading",
+    "Royal Assent date" = "Royal Assent"
   ) |>
   # adding in bill webpage urls
   left_join(bills_webpages, by = c("bill_id" = "bill_id")) |>
