@@ -57,7 +57,7 @@ kings_bills <- data.frame(
     0, # Competition Reform Bill
     0, # Digital Access to Services Bill
     0, # Education for All Bill
-    0, # Electricity Generator Levy Bill
+    4207, # Electricity Generator Levy Bill
     0, # Energy Independence Bill
     4129, # Enhancing Financial Services Bill
     0, # European Partnership Bill
