@@ -163,7 +163,11 @@ get_bill_stages <- function(kings_ids) {
 stages <- lapply(kings_ids, get_bill_stages) |>
   bind_rows() |>
   select(description, stageSittings_billId, stageSittings_date) |>
-  pivot_wider(names_from = description, values_from = stageSittings_date, values_fn = dplyr::first) |>
+  pivot_wider(
+    names_from = description,
+    values_from = stageSittings_date,
+    values_fn = dplyr::first
+  ) |>
   select(stageSittings_billId, `1st reading`, `Royal Assent`)
 
 # Join date introduced data with main table
@@ -174,36 +178,28 @@ main_table_final <- main_table |>
       as.Date(`1st reading`, format = "%Y-%m-%d"),
       "%d %B %Y"
     ),
-    `Royal Assent` = format(as.Date(`Royal Assent`, format = "%Y-%m-%d"),
-      "%d %B %Y")
-  ) |>
-  # mutate(`Royal Assent date` = NA, `Act title` = NA) |>
-   mutate(`Act title` = NA) |>
-  rename(
-    "King's Speech announcement" = "announced_bill_title",
-    "Introduced title" = "shortTitle",
-    "Originating house" = "originatingHouse",
-    "Introduction date" = "1st reading",
-    "Royal Assent date" = "Royal Assent"
-  ) |>
-  # adding in bill webpage urls
-  left_join(bills_webpages, by = c("bill_id" = "bill_id")) |>
-  #  for introduced bills with bill webpages, hyperlink the introduced title with url
-
-  mutate(
-    `Introduced title` = if_else(
-      is.na(URL) |
-        URL == "" |
-        is.na(`Introduced title`) |
-        `Introduced title` == "",
-      `Introduced title`,
-      sprintf('<a href="%s" target="_blank">%s</a>', URL, `Introduced title`)
+    `Royal Assent` = format(
+      as.Date(`Royal Assent`, format = "%Y-%m-%d"),
+      "%d %B %Y"
     )
   ) |>
-  select(-URL)
-
-write_csv(main_table_final, "app_data/main_table.csv")
-
+  # mutate(`Royal Assent date` = NA, `Act title` = NA) |>
+  #  mutate(`Act title` = NA) |>
+  rename(
+    "King's Speech announcement" = "announced_bill_title",
+    "Originating house" = "originatingHouse",
+    "Introduction date" = "1st reading",
+    "Royal Assent date" = "Royal Assent",
+    "Act title" = "shortTitle"
+  ) |>
+  # only show acts not bills in the act title column
+  mutate(
+    `Act title` = if_else(
+      is.na(`Royal Assent date`),
+      NA_character_,
+      `Act title`
+    )
+  )
 
 # ======================================
 # FETCH KINGS SPEECH BILL NEWS FROM API
@@ -258,6 +254,9 @@ news_cleaned <- news_data |>
       "High Speed Rail (Crewe - Manchester) Bill / Northern Powerhouse Rail",
       title
     )
+  ) |>
+  mutate(
+    title = str_remove(`title`, " \\[HL\\].*$")
   )
 
 news_final <- left_join(
@@ -278,6 +277,31 @@ news_final <- left_join(
     "Progress summary" = "content"
   )
 
+# joining introduced titles from get_news to main_table_final
+main_table_final <- main_table_final |>
+  left_join(
+    news_final |>
+      select(`King's Speech announcement`, `Introduced title`),
+    by = c("King's Speech announcement" = "King's Speech announcement")
+  ) |> 
+
+# adding in bill webpage urls
+left_join(bills_webpages, by = c("bill_id" = "bill_id")) |>
+  #  for introduced bills with bill webpages, hyperlink the introduced title with url
+
+  mutate(
+    `Introduced title` = if_else(
+      is.na(URL) |
+        URL == "" |
+        is.na(`Introduced title`) |
+        `Introduced title` == "",
+      `Introduced title`,
+      sprintf('<a href="%s" target="_blank">%s</a>', URL, `Introduced title`)
+    )
+  ) |>
+  select(-URL)
+
+write_csv(main_table_final, "app_data/main_table.csv")
 
 # ==========================================
 # FETCH KINGS SPEECH BILL BRIEFINGS FROM API
@@ -379,12 +403,12 @@ write.csv(news_publications, "app_data/news.csv")
 convert_html_links <- function(x) {
   # Treat "NA" as missing
   x[x == "NA"] <- NA
-  
+
   ifelse(
     is.na(x),
     NA,
     {
-      url  <- str_extract(x, '(?<=href=")[^"]+')
+      url <- str_extract(x, '(?<=href=")[^"]+')
       text <- str_extract(x, '(?<=>)[^<]+')
       paste0('=HYPERLINK("', url, '","', text, '")')
     }
@@ -394,12 +418,12 @@ convert_html_links <- function(x) {
 
 download_file <- main_table_final %>%
   left_join(news_publications, by = "King's Speech announcement") %>%
-  select(-`bill_id.x`, -`bill_id.y`) |> 
+  select(-`bill_id.x`, -`bill_id.y`) |>
   mutate(
     `Introduced title.x` = convert_html_links(`Introduced title.x`),
     `Library briefing` = convert_html_links(`Library briefing`),
-  ) |> 
-    select(
+  ) |>
+  select(
     `King's Speech announcement`,
     `Introduced title` = `Introduced title.x`,
     `Originating house`,
@@ -411,4 +435,9 @@ download_file <- main_table_final %>%
   )
 
 
-write.csv(download_file, "app_data/download_file.csv", row.names = FALSE, na = "")
+write.csv(
+  download_file,
+  "app_data/download_file.csv",
+  row.names = FALSE,
+  na = ""
+)
