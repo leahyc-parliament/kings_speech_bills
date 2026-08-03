@@ -1,35 +1,35 @@
-King's Speech announcement,bill_id,Act title,Originating house,Introduction date,Royal Assent date,Introduced title
-Civil Aviation Bill,4125,NA,Lords,14 May 2026,NA,"<a href=""https://bills.parliament.uk/bills/4125/stages"" target=""_blank"">Civil Aviation (Consumer Protection and Regulatory Reform) Bill</a>"
-Clean Water Bill,0,NA,NA,NA,NA,NA
-Commonhold and Leasehold Reform Bill,0,NA,NA,NA,NA,NA
-Competition Reform Bill,0,NA,NA,NA,NA,NA
-Digital Access to Services Bill,0,NA,NA,NA,NA,NA
-Education for All Bill,0,NA,NA,NA,NA,NA
-Electricity Generator Levy Bill,4207,Taxation (Energy and Vehicles) Act 2026,Commons,24 June 2026,15 July 2026,"<a href=""https://bills.parliament.uk/bills/4207/stages"" target=""_blank"">Taxation (Energy and Vehicles) Bill</a>"
-Energy Independence Bill,0,NA,NA,NA,NA,NA
-Enhancing Financial Services Bill,4129,NA,Lords,19 May 2026,NA,"<a href=""https://bills.parliament.uk/bills/4129/stages"" target=""_blank"">Financial Services and Markets Bill </a>"
-European Partnership Bill,0,NA,NA,NA,NA,NA
-Highways (Financing) Bill,0,NA,NA,NA,NA,NA
-Immigration and Asylum Bill,4254,NA,Commons,30 June 2026,NA,"<a href=""https://bills.parliament.uk/bills/4254/stages"" target=""_blank"">Immigration and Asylum Bill</a>"
-National Security Bill,0,NA,NA,NA,NA,NA
-Health Bill,4124,NA,Commons,14 May 2026,NA,"<a href=""https://bills.parliament.uk/bills/4124/stages"" target=""_blank"">Health Bill</a>"
-Nuclear Regulation Bill,0,NA,NA,NA,NA,NA
-Overnight Visitor Levy Bill,0,NA,NA,NA,NA,NA
-Police Reform Bill,0,NA,NA,NA,NA,NA
-Regulating for Growth Bill,0,NA,NA,NA,NA,NA
-Remediation Bill,0,NA,NA,NA,NA,NA
-Removal of Peerages Bill,0,NA,NA,NA,NA,NA
-Small Business Protections (Late Payments) Bill,4128,NA,Lords,19 May 2026,NA,"<a href=""https://bills.parliament.uk/bills/4128/stages"" target=""_blank"">Commercial Payments Bill </a>"
-Social Housing Bill,4126,NA,Lords,14 May 2026,NA,"<a href=""https://bills.parliament.uk/bills/4126/stages"" target=""_blank"">Social Housing Bill</a>"
-Sovereign Grant Bill,0,NA,NA,NA,NA,NA
-Sporting Events Bill,4127,NA,Lords,14 May 2026,NA,"<a href=""https://bills.parliament.uk/bills/4127/stages"" target=""_blank"">Sporting Events Bill</a>"
-Steel Industry (Nationalisation) Bill,4123,Steel Industry (Nationalisation) Act 2026,Commons,14 May 2026,15 July 2026,"<a href=""https://bills.parliament.uk/bills/4123/stages"" target=""_blank"">Steel Industry (Nationalisation) Bill</a>"
-Tackling State Threats Bill,4140,National Security (State Threats) Act 2026,Commons,09 June 2026,08 July 2026,"<a href=""https://bills.parliament.uk/bills/4140/stages"" target=""_blank"">National Security (State Threats) Bill</a>"
-Armed Forces Bill*,4065,NA,Commons,15 January 2026,NA,"<a href=""https://bills.parliament.uk/bills/4065/stages"" target=""_blank"">Armed Forces Bill</a>"
-Courts and Tribunals Bill*,4083,NA,Commons,25 February 2026,NA,"<a href=""https://bills.parliament.uk/bills/4083/stages"" target=""_blank"">Courts and Tribunals Bill</a>"
-Cyber Security and Resilience (Network and Information Systems) Bill*,4035,NA,Commons,12 November 2025,NA,"<a href=""https://bills.parliament.uk/bills/4035/stages"" target=""_blank"">Cyber Security and Resilience (Network and Information Systems) Bill</a>"
-Northern Ireland Troubles Bill*,4022,NA,Commons,14 October 2025,NA,"<a href=""https://bills.parliament.uk/bills/4022/stages"" target=""_blank"">Northern Ireland Troubles Bill</a>"
-High Speed Rail (Crewe - Manchester) Bill / Northern Powerhouse Rail*,3094,NA,Commons,24 January 2022,NA,"<a href=""https://bills.parliament.uk/bills/3094/stages"" target=""_blank"">High Speed Rail (Crewe - Manchester) Bill / Northern Powerhouse Rail</a>"
-Public Office (Accountability) Bill*,4019,NA,Commons,16 September 2025,NA,"<a href=""https://bills.parliament.uk/bills/4019/stages"" target=""_blank"">Public Office (Accountability) Bill</a>"
-Railways Bill*,4030,NA,Commons,05 November 2025,NA,"<a href=""https://bills.parliament.uk/bills/4030/stages"" target=""_blank"">Railways Bill</a>"
-Representation of the People Bill*,4080,NA,Commons,12 February 2026,NA,"<a href=""https://bills.parliament.uk/bills/4080/stages"" target=""_blank"">Representation of the People Bill</a>"
+"","King's Speech announcement","bill_id","Act title","Originating house","Introduction date","Royal Assent date","Introduced title"
+"1","Civil Aviation Bill",4125,NA,"Lords","14 May 2026",NA,"<a href=""https://bills.parliament.uk/bills/4125/stages"" target=""_blank"">Civil Aviation (Consumer Protection and Regulatory Reform) Bill</a>"
+"2","Clean Water Bill",0,NA,NA,NA,NA,NA
+"3","Commonhold and Leasehold Reform Bill",0,NA,NA,NA,NA,NA
+"4","Competition Reform Bill",0,NA,NA,NA,NA,NA
+"5","Digital Access to Services Bill",0,NA,NA,NA,NA,NA
+"6","Education for All Bill",0,NA,NA,NA,NA,NA
+"7","Electricity Generator Levy Bill",4207,"Taxation (Energy and Vehicles) Act 2026","Commons","24 June 2026","15 July 2026","<a href=""https://bills.parliament.uk/bills/4207/stages"" target=""_blank"">Taxation (Energy and Vehicles) Bill</a>"
+"8","Energy Independence Bill",0,NA,NA,NA,NA,NA
+"9","Enhancing Financial Services Bill",4129,NA,"Lords","19 May 2026",NA,"<a href=""https://bills.parliament.uk/bills/4129/stages"" target=""_blank"">Financial Services and Markets Bill </a>"
+"10","European Partnership Bill",0,NA,NA,NA,NA,NA
+"11","Highways (Financing) Bill",0,NA,NA,NA,NA,NA
+"12","Immigration and Asylum Bill",4254,NA,"Commons","30 June 2026",NA,"<a href=""https://bills.parliament.uk/bills/4254/stages"" target=""_blank"">Immigration and Asylum Bill</a>"
+"13","National Security Bill",0,NA,NA,NA,NA,NA
+"14","Health Bill",4124,NA,"Commons","14 May 2026",NA,"<a href=""https://bills.parliament.uk/bills/4124/stages"" target=""_blank"">Health Bill</a>"
+"15","Nuclear Regulation Bill",0,NA,NA,NA,NA,NA
+"16","Overnight Visitor Levy Bill",0,NA,NA,NA,NA,NA
+"17","Police Reform Bill",0,NA,NA,NA,NA,NA
+"18","Regulating for Growth Bill",0,NA,NA,NA,NA,NA
+"19","Remediation Bill",0,NA,NA,NA,NA,NA
+"20","Removal of Peerages Bill",0,NA,NA,NA,NA,NA
+"21","Small Business Protections (Late Payments) Bill",4128,NA,"Lords","19 May 2026",NA,"<a href=""https://bills.parliament.uk/bills/4128/stages"" target=""_blank"">Commercial Payments Bill </a>"
+"22","Social Housing Bill",4126,NA,"Lords","14 May 2026",NA,"<a href=""https://bills.parliament.uk/bills/4126/stages"" target=""_blank"">Social Housing Bill</a>"
+"23","Sovereign Grant Bill",0,NA,NA,NA,NA,NA
+"24","Sporting Events Bill",4127,NA,"Lords","14 May 2026",NA,"<a href=""https://bills.parliament.uk/bills/4127/stages"" target=""_blank"">Sporting Events Bill</a>"
+"25","Steel Industry (Nationalisation) Bill",4123,"Steel Industry (Nationalisation) Act 2026","Commons","14 May 2026","15 July 2026","<a href=""https://bills.parliament.uk/bills/4123/stages"" target=""_blank"">Steel Industry (Nationalisation) Bill</a>"
+"26","Tackling State Threats Bill",4140,"National Security (State Threats) Act 2026","Commons","09 June 2026","08 July 2026","<a href=""https://bills.parliament.uk/bills/4140/stages"" target=""_blank"">National Security (State Threats) Bill</a>"
+"27","Armed Forces Bill*",4065,NA,"Commons","15 January 2026",NA,"<a href=""https://bills.parliament.uk/bills/4065/stages"" target=""_blank"">Armed Forces Bill</a>"
+"28","Courts and Tribunals Bill*",4083,NA,"Commons","25 February 2026",NA,"<a href=""https://bills.parliament.uk/bills/4083/stages"" target=""_blank"">Courts and Tribunals Bill</a>"
+"29","Cyber Security and Resilience (Network and Information Systems) Bill*",4035,NA,"Commons","12 November 2025",NA,"<a href=""https://bills.parliament.uk/bills/4035/stages"" target=""_blank"">Cyber Security and Resilience (Network and Information Systems) Bill</a>"
+"30","Northern Ireland Troubles Bill*",4022,NA,"Commons","14 October 2025",NA,"<a href=""https://bills.parliament.uk/bills/4022/stages"" target=""_blank"">Northern Ireland Troubles Bill</a>"
+"31","High Speed Rail (Crewe - Manchester) Bill / Northern Powerhouse Rail*",3094,NA,"Commons","24 January 2022",NA,"<a href=""https://bills.parliament.uk/bills/3094/stages"" target=""_blank"">High Speed Rail (Crewe - Manchester) Bill / Northern Powerhouse Rail</a>"
+"32","Public Office (Accountability) Bill*",4019,NA,"Commons","16 September 2025",NA,"<a href=""https://bills.parliament.uk/bills/4019/stages"" target=""_blank"">Public Office (Accountability) Bill</a>"
+"33","Railways Bill*",4030,NA,"Commons","05 November 2025",NA,"<a href=""https://bills.parliament.uk/bills/4030/stages"" target=""_blank"">Railways Bill</a>"
+"34","Representation of the People Bill*",4080,NA,"Commons","12 February 2026",NA,"<a href=""https://bills.parliament.uk/bills/4080/stages"" target=""_blank"">Representation of the People Bill</a>"

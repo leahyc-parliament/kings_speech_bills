@@ -305,7 +305,7 @@ main_table_final <- main_table_final |>
   ) |>
   select(-URL)
 
-write_csv(main_table_final, "app_data/main_table.csv")
+write.csv(main_table_final, "app_data/main_table.csv")
 
 # ==========================================
 # FETCH KINGS SPEECH BILL BRIEFINGS FROM API
@@ -437,7 +437,6 @@ download_file <- main_table_final %>%
     `Progress summary`,
     `Library briefing`
   )
-
 
 write.csv(
   download_file,
