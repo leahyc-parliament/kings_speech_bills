@@ -275,7 +275,13 @@ news_final <- left_join(
     "King's Speech announcement" = "announced_bill_title",
     "Introduced title" = "title",
     "Progress summary" = "content"
-  )
+  ) |>
+  left_join(
+    main_table |>
+      select(`announced_bill_title`, `shortTitle`),
+    by = c("King's Speech announcement" = "announced_bill_title")
+  ) |> 
+  rename("Title**" = "shortTitle")
 
 # joining introduced titles from get_news to main_table_final
 main_table_final <- main_table_final |>
@@ -283,12 +289,10 @@ main_table_final <- main_table_final |>
     news_final |>
       select(`King's Speech announcement`, `Introduced title`),
     by = c("King's Speech announcement" = "King's Speech announcement")
-  ) |> 
-
-# adding in bill webpage urls
-left_join(bills_webpages, by = c("bill_id" = "bill_id")) |>
+  ) |>
+  # adding in bill webpage urls
+  left_join(bills_webpages, by = c("bill_id" = "bill_id")) |>
   #  for introduced bills with bill webpages, hyperlink the introduced title with url
-
   mutate(
     `Introduced title` = if_else(
       is.na(URL) |
