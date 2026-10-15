@@ -1,12 +1,12 @@
 name: King's Speech Data Fetch
 run-name: ${{ github.actor }} is fetching King's Speech bills data
 
-# on: 
-#   schedule:
-#     - cron: "30 10 * * *"
+on: 
+  schedule:
+    - cron: "30 10 * * *"
 
 
-on: [push]
+# on: [push]
 
 jobs:
   Fetch-Kings-Speech-data:
