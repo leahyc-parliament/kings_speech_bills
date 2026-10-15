@@ -75,7 +75,7 @@ kings_bills <- data.frame(
     4126, # Social Housing Bill
     4280, # Sovereign Grant Bill
     4127, # Sporting Events Bill
-    4123, # Steel Industry (Nationalisation) Bill
+    4123, # Steel Industry (Natio   nalisation) Bill
     4140, # Tackling State Threats Bill
     4065, # Armed Forces Bill*
     4083, # Courts and Tribunals Bill*
