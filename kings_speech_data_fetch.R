@@ -69,7 +69,7 @@ kings_bills <- data.frame(
     0, # Overnight Visitor Levy Bill
     0, # Police Reform Bill
     0, # Regulating for Growth Bill
-    0, # Remediation Bill
+    4305, # Remediation Bill
     0, # Removal of Peerages Bill
     4128, # Small Business Protections (Late Payments) Bill
     4126, # Social Housing Bill
