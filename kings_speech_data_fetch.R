@@ -58,7 +58,7 @@ kings_bills <- data.frame(
     0, # Digital Access to Services Bill
     0, # Education for All Bill
     4207, # Electricity Generator Levy Bill
-    0, # Energy Independence Bill
+    4319, # Energy Independence Bill
     4129, # Enhancing Financial Services Bill
     0, # European Partnership Bill
     4290, # Highways (Financing) Bill
@@ -66,7 +66,7 @@ kings_bills <- data.frame(
     0, # National Security Bill
     4124, # Health Bill
     0, # Nuclear Regulation Bill
-    0, # Overnight Visitor Levy Bill
+    4320, # Overnight Visitor Levy Bill
     0, # Police Reform Bill
     0, # Regulating for Growth Bill
     4305, # Remediation Bill
